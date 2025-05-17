@@ -19,4 +19,5 @@ jobs:
         run: |
           echo "Deploying infrastructure..."
           terraform init
+          terraform plan -out=tfplan-${{github.run_id}} -input=false
           terraform apply -auto-approve
