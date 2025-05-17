@@ -14,17 +14,3 @@ terraform {
     }
   }
 }
-
-/**********************************************************
-  # Add configuration to authorization keys
-  # Configure the AWS Provider  
-  - shared_config_files: The path to the shared AWS configuration file.
-  - shared_credentials_files: The path to the shared AWS credentials file.
-  - profile: The name of the AWS profile to use for authentication.
-**********************************************************/
-
-provider "aws" {
-  shared_config_files      = ["~/.aws/config"]
-  shared_credentials_files = ["~/.aws/credentials"]
-  profile                  = "default"
-}
