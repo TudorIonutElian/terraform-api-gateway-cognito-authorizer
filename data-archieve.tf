@@ -9,6 +9,6 @@
 
 data "archive_file" "service_api_check_handler_archive" {
   type        = "zip"
-  source_file = "${path.module}/lambda/index.js"
+  source_file = "${path.module}/functions/index.js"
   output_path = "${path.module}/lambda_api_check_handler.zip"
 }
