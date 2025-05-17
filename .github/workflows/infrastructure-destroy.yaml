@@ -1,5 +1,4 @@
 name: Deploy lambda
-# Trigger deployment only on push to main branch
 on:
   push:
     branches:
