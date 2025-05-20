@@ -44,7 +44,7 @@ resource "aws_acm_certificate" "customer_api_certificate" {
 }
 
 resource "aws_api_gateway_domain_name" "learndevtech_domain" {
-  certificate_arn = aws_acm_certificate_validation.customer_api_certificate.certificate_arn
+  certificate_arn = aws_acm_certificate.customer_api_certificate.certificate_arn
   domain_name     = "api.learndevtech.com"
 }
 
