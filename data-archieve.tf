@@ -7,7 +7,7 @@
     - output_path: The path to save the archive file.
 */
 
-data "archive_file" "service_api_check_handler_archive" {
+data "archive_file" "service_customer_api_function_archive" {
   type        = "zip"
   source_file = "${path.module}/functions/index.js"
   output_path = "${path.module}/lambda_api_check_handler.zip"

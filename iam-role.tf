@@ -5,12 +5,12 @@
   - name: The name of the IAM role.
   - assume_role_policy: The ARN of the IAM policy document that allows the Lambda function to assume the role.
 */
-resource "aws_iam_role" "service_api_check_handler_role" {
-  name               = "service-api-check-handler-role"
+resource "aws_iam_role" "service_customer_api_function_role" {
+  name               = "service-customer-api-function-role"
   assume_role_policy = data.aws_iam_policy_document.LambdaAWSLambdaTrustPolicy.json
 
   tags = {
-    Name = "service-api-check-handler-role"
+    Name = "service-customer-api-function-role"
     Project = "devops-playground-projects"
   }
 }
