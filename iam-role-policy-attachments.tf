@@ -7,6 +7,6 @@
   
 */
 resource "aws_iam_role_policy_attachment" "service_api_check_handler_role_attachment" {
-  role       = aws_iam_role.service_api_check_handler_role.name
+  role       = aws_iam_role.service_customer_api_function_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
