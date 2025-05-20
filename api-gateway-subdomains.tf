@@ -30,9 +30,27 @@ resource "aws_route53_record" "api_domain_record" {
   zone_id = data.aws_route53_zone.learndevtech.zone_id
 }
 
+
+/*****************************************************
+ * Create a certificate for the domain
+ ****************************************************/
+resource "aws_acm_certificate" "customer_api_certificate" {
+  domain_name       = "api.learndevtech.com"
+  validation_method = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_api_gateway_domain_name" "learndevtech_domain" {
+  certificate_arn = aws_acm_certificate_validation.customer_api_certificate.certificate_arn
+  domain_name     = "api.learndevtech.com"
+}
+
 resource "aws_api_gateway_base_path_mapping" "customer_api_mapping" {
     api_id      = aws_api_gateway_rest_api.customer_api.id
-    stage_name  = aws_api_gateway_stage.customer_api_stage.stage_name
+    stage_name  = aws_api_gateway_stage.customer_api_deployment.stage_name
     domain_name = aws_api_gateway_domain_name.learndevtech_domain.domain_name
     base_path   = "customer"
 }
